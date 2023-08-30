@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity;
 
-namespace SampleProject.Core.TypeConfiguration.Concrete
+namespace SampleProject.Core.Entity.TypeConfiguration.Concrete
 {
     public class IdentityRoleMap : IEntityTypeConfiguration<IdentityRole>
     {

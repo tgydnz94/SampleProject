@@ -1,4 +1,4 @@
-﻿using SampleProject.Core.Abstract;
+﻿using SampleProject.Core.Entity.Abstract;
 
 namespace SampleProject.Entities.Concrete
 {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SampleProject.Core.Enums
+namespace SampleProject.Core.Entity.Enums
 {
     public enum Statu
     {

@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
-using SampleProject.Core.Abstract;
+using SampleProject.Core.Entity.Abstract;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;

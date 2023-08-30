@@ -1,11 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using SampleProject.Core.Abstract;
+using SampleProject.Core.Entity.Abstract;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SampleProject.Core.TypeConfiguration.Abstract
+namespace SampleProject.Core.Entity.TypeConfiguration.Abstract
 {
     public abstract class BaseMap<T> : IEntityTypeConfiguration<T> where T : BaseEntity
     {

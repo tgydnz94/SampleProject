@@ -1,9 +1,9 @@
-﻿using SampleProject.Core.Enums;
+﻿using SampleProject.Core.Entity.Enums;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SampleProject.Core.Abstract
+namespace SampleProject.Core.Entity.Abstract
 {
     public abstract class BaseEntity
     {
@@ -20,7 +20,7 @@ namespace SampleProject.Core.Abstract
         public DateTime? DeletedDate { get; set; }
 
         private Statu _statu = Statu.Active;
-        public Statu Sata
+        public Statu Statu
         {
             get { return _statu; }
             set { _statu = value; }

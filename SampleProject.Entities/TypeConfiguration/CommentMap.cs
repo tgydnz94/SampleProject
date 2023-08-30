@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using SampleProject.Core.TypeConfiguration.Abstract;
+using SampleProject.Core.Entity.TypeConfiguration.Abstract;
 using SampleProject.Entities.Concrete;
 
 namespace SampleProject.Entities.TypeConfiguration
