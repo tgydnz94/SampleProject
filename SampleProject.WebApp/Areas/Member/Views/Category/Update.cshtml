@@ -1,0 +1,33 @@
+﻿@model UpdateCategoryDTO
+
+
+<div class="container-fluid">
+    <div class="row">
+        <h3>Category Update Panel </h3>
+    </div>
+    <div class=" col-md-6">
+
+        <form asp-action="Update" method="post">
+
+            <div class="form-group">
+                <label asp-for="Name" ></label>
+                <input asp-for="Name" class="form-control" type="text" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" ></label>
+                <input asp-for="Description" class="form-control" type="text" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+           <div>
+               <input type="hidden" asp-for="ID" />
+           </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-success">GÜNCELLE</button>
+            </div>
+
+        </form>
+    </div>
+
+</div>
+

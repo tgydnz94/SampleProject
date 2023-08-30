@@ -12,7 +12,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SampleProject.Dal\SampleProject.Dal.csproj" />
-    <ProjectReference Include="..\SampleProject.Entities\SampleProject.Entities.csproj" />
   </ItemGroup>
 
 </Project>

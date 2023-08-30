@@ -1,0 +1,42 @@
+﻿@model List<GetArticleVM>
+
+
+<div class="card col-md-12">
+    <div class="card-header">
+        <h3 class="card-title">Article List</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body p-0">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+
+                    <th>Title</th>
+                    <th> Image </th>
+                    <th>CategoryName</th>
+                    <th>User FullName</th>
+
+                    <th>Operations</th>
+
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (GetArticleVM item in Model)
+                {
+                    <tr>
+                        <td>@item.Title</td>
+                        <td><img src="@item.Image" /></td>
+                        <td>@item.CategoryName</td>
+                        <td>@item.FullName</td>
+
+                        <td><a asp-action="Update" asp-route-id="@item.ArticleID" class="btn btn-success">Güncelle</a></td>
+                        <td><a asp-action="Delete" asp-route-id="@item.ArticleID" class="btn btn-warning">Sil</a></td>
+                        <td><a asp-action="Detail" asp-route-id="@item.ArticleID" class="btn btn-info">Detay</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>

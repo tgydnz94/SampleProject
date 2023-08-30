@@ -1,0 +1,62 @@
+﻿
+@model ArticleCreateVM
+
+<div class="container">
+    <div class="row">
+
+        <div class="row">
+            <h3>Article Create Panel</h3>
+        </div>
+        <div class="row">
+
+            <form asp-action="Create" method="post" enctype="multipart/form-data">
+                @*
+                <div class="form-group">
+                <span asp-validation-summary="All"></span>
+                </div>*@
+
+                <div class="form-group">
+                    <label asp-for="Title"></label>
+                    <input asp-for="Title" type="text" class="form-control" />
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Content"></label>
+
+                    <textarea cols="60" rows="20" asp-for="Content" type="text" class="form-control"></textarea>
+                    <span asp-validation-for="Content" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ImagePath"></label>
+                    <input asp-for="ImagePath" type="file" class="form-control" />
+                    <span asp-validation-for="ImagePath" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <input asp-for="AppUserID" type="hidden" />
+                </div>
+                <div class="form-group">
+                    <label class="form-label select-label" asp-for="CategoryID"></label>
+                    <select asp-for="CategoryID" multiple>
+                        @foreach (var item in Model.Categories)
+                        {
+                            <option value="@item.ID">
+
+                                @item.Name
+
+                            </option>
+                        }
+                    </select>
+                    <span asp-validation-for="CategoryID" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success">OLUŞTUR</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
