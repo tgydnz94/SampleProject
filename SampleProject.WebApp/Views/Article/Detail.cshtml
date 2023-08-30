@@ -1,0 +1,40 @@
+﻿@model ArticleDetailVM
+
+
+<div class="row">
+    <!-- Box Comment -->
+    <div class="card card-widget">
+        <div class="card-header">
+            <div class="user-block">
+                <img class="img-circle" src="@Model.UserImage" alt="User Image">
+                <span class="username"><a asp-action="Detail" asp-controller="" asp-route-id="@Model.UserId">@Model.UserFullName</a></span><br />
+                <span class="description">Makele Oluşma Tarihi :  @Model.CreatedDate.ToShortDateString()</span><br />
+                <span class="description">Makele Kategorisi:  @Model.CategoryName</span>
+            </div>
+            <!-- /.user-block -->
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" title="Mark as read">
+                    <i class="far fa-circle"></i>
+                </button>
+                <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                    <i class="fas fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-tool" data-card-widget="remove">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <!-- /.card-tools -->
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+            <img class="img-fluid pad" src="@Model.Image" alt="Photo">
+            <h4>@Model.Title</h4>
+            <p>@Model.Content</p>
+
+            <span class="float-right text-muted">@Model.Likes.Count() beğeni </span>
+            @await Component.InvokeAsync("Comments", new {id=ViewBag.Id})
+        </div>
+
+    </div>
+    <!-- /.card -->
+</div>

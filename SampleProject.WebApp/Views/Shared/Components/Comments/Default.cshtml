@@ -1,0 +1,19 @@
+﻿@model List<GetCommentWithUserVM>
+
+<div class="comment-top">
+    <h4>Yorumlar</h4>
+    @foreach (var item in Model)
+    {
+
+
+            <div class="media">
+                <img src="@item.Image" alt="" class="img-fluid">
+                <div class="media-body">
+                    <h5 class="mt-0">@item.UserFullName</h5>
+                    <p>
+                    @item.Text
+                    </p>
+                </div>
+            </div>
+    }
+</div>
