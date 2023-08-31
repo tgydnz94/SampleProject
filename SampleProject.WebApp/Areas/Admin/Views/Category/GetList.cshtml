@@ -1,0 +1,36 @@
+﻿@model List<Category>
+
+
+
+
+<div class="card col-md-8">
+    <div class="card-header">
+        <h3 class="card-title">Category List</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body p-0">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+
+                    <th>Category Name</th>
+                    <th> Operations </th>
+
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (Category item in Model)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td><a asp-action="Update" asp-route-id="@item.ID" class="btn btn-success">Güncelle</a></td>
+                        <td><a asp-action="Delete" asp-route-id="@item.ID" class="btn btn-warning">Sil</a></td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>

@@ -1,0 +1,34 @@
+﻿@model List<AppUser>
+
+
+<div class="card col-md-8">
+    <div class="card-header">
+        <h3 class="card-title">Category List</h3>
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body p-0">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+
+                    <th>Full Name</th>
+                    <th> Operations </th>
+
+                </tr>
+            </thead>
+            <tbody>
+
+                @foreach (AppUser item in Model)
+                {
+                    <tr>
+                        <td>@item.FirstName @item.LastName</td>
+                        <td><a asp-action="#" asp-route-id="@item.ID" class="btn btn-success">Ekle</a></td>
+                        <td><a asp-action="Delete" asp-route-id="@item.ID" class="btn btn-warning">Sil</a></td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <!-- /.card-body -->
+</div>
