@@ -41,7 +41,7 @@ namespace SampleProject.WebApp.Controllers
 
                 if (result.Succeeded)
                 {
-                    await _userManager.AddToRoleAsync(identityUser, "Member");   // member rolünü eklemiş olduk
+                    await _userManager.AddToRoleAsync(identityUser, "Member"); // member rolünü eklemiş olduk
 
                     var user = _mapper.Map<AppUser>(dto);
                     user.IdentityId = newId;

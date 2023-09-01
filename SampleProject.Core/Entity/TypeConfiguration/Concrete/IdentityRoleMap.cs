@@ -13,6 +13,7 @@ namespace SampleProject.Core.Entity.TypeConfiguration.Concrete
         {
             // Rolleri buradan ekliyoruz
             builder.HasData(new IdentityRole { Id = Guid.NewGuid().ToString(), Name = "Admin", NormalizedName = "ADMIN" });
+            builder.HasData(new IdentityRole { Id = Guid.NewGuid().ToString(), Name = "Member", NormalizedName = "MEMBER" });
         }
     }
 }

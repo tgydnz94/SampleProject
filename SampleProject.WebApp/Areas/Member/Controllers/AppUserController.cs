@@ -120,5 +120,10 @@ namespace SampleProject.WebApp.Areas.Member.Controllers
 
             return RedirectToAction("Index", "Home");
         }
+
+        public IActionResult AboutUs()
+        {
+            return View();
+        }
     }
 }
