@@ -10,14 +10,15 @@ namespace SampleProject.Dal.Concrete.EfRepository
 {
     public class EfCategoryRepository : EfBaseRepository<Category,ProjectContext>, ICategoryRepository
     {
-        ProjectContext _context;
+        private readonly ProjectContext _context;
         public EfCategoryRepository(ProjectContext context) : base(context)
         {
-
+            _context=context;
         }
 
         public List<Category> GetCategoriesWithUser(int id)
         {
+
             return _context.UserFollowedCategories.Include(a => a.AppUser).Include(a => a.Category).Where(a => a.AppUserID == id).Select(a => a.Category).ToList();
         }
     }

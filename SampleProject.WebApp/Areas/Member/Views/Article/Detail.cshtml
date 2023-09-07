@@ -1,82 +1,92 @@
-﻿
-@model ArticleDetailVM
+﻿@model ArticleDetailVM
 
 
 
+<div class="content-wrapper d-flex align-items-center auth">
 
-<div class="container">
 
-    <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
-        <div class="col-md-6 px-0">
-            <img src="@Model.Image" />
-        </div>
-    </div>
-    <div class="row mb-2">
-        <div class="col-md-12">
-            <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                <div class="col p-4 d-flex flex-column position-static">
-                    <p>Makalenin Yazarı :   <a asp-action="GetArticle" asp-route-id="@Model.UserId">@Model.UserFullName</a></p>
-                    <p>Makale yazarı  @Model.UserCreatedDate.ToShortDateString()   beri aramızda...</p>
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
 
-                    <p>Makalenin Kategorisi : <a asp-action="FilterArticleWithCategory" asp-route-id="@Model.CategoryId">@Model.CategoryName</a></p>
-                    <p>Makalenin Oluşma Tarihi : @Model.CreatedDate.ToShortDateString() </p>
-                    <p>Makalenin beğeni sayısı : @Model.Likes.Count()</p>
+                <div class="container">
+
+                    <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
+                        <div class="col-md-6 px-0">
+                            <img src="@Model.Image" />
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-md-12">
+                            <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                                <div class="col p-4 d-flex flex-column position-static">
+                                    <p>Makalenin Yazarı :   <a asp-action="GetArticle" asp-route-id="@Model.UserId">@Model.UserFullName</a></p>
+                                    <p>Makale yazarı  @Model.UserCreatedDate.ToShortDateString()   beri aramızda...</p>
+
+                                    <p>Makalenin Kategorisi : <a asp-action="FilterArticleWithCategory" asp-route-id="@Model.CategoryId">@Model.CategoryName</a></p>
+                                    <p>Makalenin Oluşma Tarihi : @Model.CreatedDate.ToShortDateString() </p>
+                                    <p>Makalenin beğeni sayısı : @Model.Likes.Count()</p>
+                                </div>
+                                <div class="col-auto d-none d-lg-block">
+                                    <img src="@Model.UserImage" width="200" height="250" />
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
-                <div class="col-auto d-none d-lg-block">
-                    <img src="@Model.UserImage" width="200" height="250" />
+
+                <main role="main" class="container">
+                    <div class="row">
+                        <div class="col-md-8 blog-main">
+
+                            <div class="blog-post">
+                                <h2 class="blog-post-title">@Model.Title</h2>
+
+                                <p>@Model.Content</p>
+
+                            </div><!-- /.blog-post -->
+
+                            <div class="mt-3">
+
+                                @if (Model.Likes.Any(a => a.AppUserID == Model.UserId))
+                                {
+                                    <a asp-action="Unlike" asp-controller="Article" asp-route-id="@Model.ArticleID">
+                                        <i class="fa fa-heart" style="color:darkred;"></i>
+                                        <label>@Model.Likes.Count() beğeni</label>
+                                    </a>
+                                }
+                                else
+                                {
+                                    <a asp-action="Like" asp-controller="Article" asp-route-id="@Model.ArticleID">
+                                        <i class="fa fa-heart-o" style="color:darkred;"></i>
+                                        <label>@Model.Likes.Count() beğeni</label>
+                                    </a>
+                                }
+
+                            </div>
+
+                        </div><!-- /.blog-main -->
+
+                    </div><!-- /.row -->
+
+                </main><!-- /.container -->
+
+
+
+                <div class="container">
+                    @await Component.InvokeAsync("Comments", new {id=ViewBag.Id})
                 </div>
+
+                <div class="container">
+                    @await Html.PartialAsync("~/Areas/Member/Views/Comment/AddComment.cshtml", new {id=ViewBag.Id})
+                </div>
+
+
+
             </div>
         </div>
-
     </div>
+
+
 </div>
-
-<main role="main" class="container">
-    <div class="row">
-        <div class="col-md-8 blog-main">
-
-            <div class="blog-post">
-                <h2 class="blog-post-title">@Model.Title</h2>
-
-                <p>@Model.Content</p>
-
-            </div><!-- /.blog-post -->
-
-            <div class="mt-3">
-
-                @if (Model.Likes.Any(a => a.AppUserID == Model.UserId))
-                {
-                    <a asp-action="Unlike" asp-controller="Article" asp-route-id="@Model.ArticleID">
-                        <i class="fa fa-heart" style="color:darkred;"></i>
-                        <label>@Model.Likes.Count()</label>
-                    </a>
-                }
-                else
-                {
-                    <a asp-action="Like" asp-controller="Article" asp-route-id="@Model.ArticleID">
-                        <i class="fa fa-heart-o" style="color:darkred;"></i>
-                        <label>@Model.Likes.Count()</label>
-                    </a>
-                }
-
-            </div>
-
-        </div><!-- /.blog-main -->
-
-    </div><!-- /.row -->
-
-</main><!-- /.container -->
-
-<form asp-action="Comment" asp-controller="Article">
-    <div class="container">
-        <textarea class="form-control" name="Text" placeholder="Yorum yapınız..."> </textarea>
-        <br />
-        <input type="submit" class="btn btn-success">Yorum Yap<input />
-    </div>
-</form>
-
-
-<div class="container">
-    @await Component.InvokeAsync("Comments")
-</div>
-

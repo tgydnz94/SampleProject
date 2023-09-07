@@ -159,8 +159,15 @@ namespace SampleProject.WebApp.Areas.Member.Controllers
 
         }
 
-        public IActionResult Detail(int id)
+        public async Task<IActionResult> Detail(int id)
         {
+            ViewBag.Id = id;
+            ViewBag.CommentId = id;
+            IdentityUser user = await _userManager.GetUserAsync(User);
+
+            AppUser appUser = _appUserService.GetDefault(a => a.IdentityId == user.Id);
+
+            ViewBag.UserId = appUser.ID;
             var article = _articleService.GetByDefault
                 (
                     selector: a => new ArticleDetailVM()

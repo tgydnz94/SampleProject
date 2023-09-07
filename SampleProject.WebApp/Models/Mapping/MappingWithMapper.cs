@@ -20,6 +20,10 @@ namespace SampleProject.WebApp.Models.Mapping
             CreateMap<ArticleCreateVM, Article>();
             CreateMap<ArticleUpdateVM, Article>().ReverseMap();
 
+            CreateMap<GetArticleVM, Article>();
+
+            CreateMap<CreateCommentVM, Comment>();
+
 
 
         }

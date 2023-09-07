@@ -38,50 +38,6 @@ namespace SampleProject.WebApp.Areas.Admin.Controllers
             return View(list);
         }
 
-        [HttpGet]
-        public IActionResult Add()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult Add(CreateCategoryDTO createCategoryDTO)
-        {
-            if (ModelState.IsValid)
-            {
-                var category = _mapper.Map<Category>(createCategoryDTO);
-                _categoryService.Create(category);
-                return RedirectToAction("GetList");
-            }
-            return View(createCategoryDTO);
-        }
-
-        [HttpGet]
-        public IActionResult Update(int id)
-        {
-            Category category = _categoryService.GetDefault(a => a.ID == id);
-
-            //UpdateCategoryDTO updateCategoryDTO = new UpdateCategoryDTO();
-            //updateCategoryDTO.Name = category.Name;
-            //updateCategoryDTO.Description = category.Description;
-
-            var updatedCategory = _mapper.Map<UpdateCategoryDTO>(category);
-            return View(updatedCategory);
-
-
-        }
-
-        [HttpPost]
-        public IActionResult Update(UpdateCategoryDTO dto)
-        {
-            if (ModelState.IsValid)
-            {
-                var category = _mapper.Map<Category>(dto);
-                _categoryService.Update(category);
-                return RedirectToAction("GetList");
-            }
-            return View(dto);
-        }
 
         public IActionResult Delete(int id)
         {

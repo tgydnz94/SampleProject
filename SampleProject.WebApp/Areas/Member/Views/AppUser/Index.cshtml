@@ -9,3 +9,31 @@
         <a href="#" class="d-block">@Model.FullName</a>
     </div>
 }
+
+
+
+<div class="content-wrapper d-flex align-items-center auth">
+
+
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+
+                    <div class="col-md-8">
+
+                        @await Component.InvokeAsync("Articles")
+                    </div>
+                    <div class="col-md-4">
+
+                        @await Component.InvokeAsync("UserFollowCategory",new {id=Model.ID})
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+

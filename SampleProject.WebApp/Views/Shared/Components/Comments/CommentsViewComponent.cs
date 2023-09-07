@@ -13,6 +13,12 @@ namespace SampleProject.WebApp.Views.Shared.Components.Comments
     public class CommentsViewComponent : ViewComponent
     {
         private readonly ICommentService _commentService;
+
+        public CommentsViewComponent(ICommentService commentService)
+        {
+            _commentService = commentService;
+        }
+
         public IViewComponentResult Invoke(int id)
         {
 

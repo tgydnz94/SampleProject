@@ -1,0 +1,34 @@
+﻿
+
+<div class="form-group">
+    <br />
+    <h3 class="text-primary">Yorum Yaz</h3>
+
+    <div class="">
+        <form asp-action="AddComment" asp-controller="Comment" method="post">
+            <div class="form-row">
+
+                <div class="col-7">
+                    <input type="hidden" class="form-control" name="AppUserID" @*placeholder="@ViewBag.name" *@ value="@ViewBag.UserId" required="">
+                </div>
+
+                <div class="col">
+                    <input type="hidden" class="form-control" name="ArticleID" placeholder="Article id" value="@ViewBag.CommentId" required="">
+
+                </div>
+            </div>
+                        <div>
+            <textarea class="form-control" name="Text" placeholder="Yorumunuz..." required=""></textarea>
+            </div>
+            <br />
+
+            <button type="submit" class="btn btn-primary btn-lg btn-block">Yorum Yap</button>
+
+
+        </form>
+
+
+    </div>
+
+
+</div>
