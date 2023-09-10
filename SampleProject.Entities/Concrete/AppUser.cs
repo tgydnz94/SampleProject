@@ -33,6 +33,10 @@ namespace SampleProject.Entities.Concrete
         public List<Like> Likes { get; set; }
         public List<Comment> Comments { get; set; }
         public List<UserFollowedCategories> UserFollowedCategories { get; set; }
+
+        //Mesajlar
+        public virtual ICollection<Message> Sender { get; set; }
+        public virtual ICollection<Message> Receiver { get; set; }
     }
 
 }

@@ -18,6 +18,8 @@ namespace SampleProject.Dal.Context
         public DbSet<Like> Likes { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<UserFollowedCategories> UserFollowedCategories { get; set; }
+        public DbSet<Message> Messages { get; set; }
+        public DbSet<Notification> Notifications { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -27,6 +29,8 @@ namespace SampleProject.Dal.Context
             builder.ApplyConfiguration(new IdentityRoleMap());
             builder.ApplyConfiguration(new LikeMap());
             builder.ApplyConfiguration(new UserFollowedCategoryMap());
+            builder.ApplyConfiguration(new MessageMap());
+            builder.ApplyConfiguration(new NotificationMap());
 
             base.OnModelCreating(builder);
         }
